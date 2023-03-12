@@ -14,7 +14,6 @@ const addCard = () => {
 
 // Display product
 const displayProduct = (product, quantity) => {
-    console.log(product, quantity);
     const listContainer = document.getElementById('product-container');
     const li = document.createElement('li');
     li.innerHTML = `
@@ -42,3 +41,13 @@ const saveProductToLocalStores = (product, quantity) => {
     console.log(cartStringified);
     localStorage.setItem('cart', cartStringified)
 }
+
+const displayProductFromLocalStores = () => {
+    const saveCart = getStoredShoppingCart()
+    for (const product in saveCart) {
+        const quantity = saveCart[product];
+        displayProduct(product, quantity)
+
+    }
+}
+displayProductFromLocalStores()
