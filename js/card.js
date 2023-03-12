@@ -21,3 +21,13 @@ const displayProduct = (product, quantity) => {
     `;
     listContainer.appendChild(li)
 }
+
+// check product and  get product 
+const getStoredShoppingCart = () => {
+    let cart = {}
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+    }
+    return cart;
+}
