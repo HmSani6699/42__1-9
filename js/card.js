@@ -8,7 +8,8 @@ const addCard = () => {
     productQuantity.value = ''
 
     // console.log(product, quantity);
-    displayProduct(product, quantity)
+    displayProduct(product, quantity);
+    saveProductToLocalStores(product, quantity)
 }
 
 // Display product
@@ -30,4 +31,14 @@ const getStoredShoppingCart = () => {
         cart = JSON.parse(storedCart);
     }
     return cart;
+}
+
+
+// Save to LocalStores
+const saveProductToLocalStores = (product, quantity) => {
+    const cart = getStoredShoppingCart();
+    cart[product] = quantity;
+    const cartStringified = JSON.stringify(cart);
+    console.log(cartStringified);
+    localStorage.setItem('cart', cartStringified)
 }
