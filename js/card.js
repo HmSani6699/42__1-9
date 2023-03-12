@@ -4,5 +4,20 @@ const addCard = () => {
     const product = productFiled.value;
     const quantity = productQuantity.value;
 
-    console.log(product, quantity)
+    productFiled.value = ''
+    productQuantity.value = ''
+
+    // console.log(product, quantity);
+    displayProduct(product, quantity)
+}
+
+// Display product
+const displayProduct = (product, quantity) => {
+    console.log(product, quantity);
+    const listContainer = document.getElementById('product-container');
+    const li = document.createElement('li');
+    li.innerHTML = `
+    ${product}: ${quantity}
+    `;
+    listContainer.appendChild(li)
 }
