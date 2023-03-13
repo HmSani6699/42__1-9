@@ -9,6 +9,7 @@ const addCard = () => {
 
     // console.log(product, quantity);
     displayProduct(product, quantity);
+    saveToLocalStorageFromCart(product, quantity)
 }
 
 // Display product
@@ -31,3 +32,11 @@ const getProductToLocalStorage = () => {
     return cart;
 }
 
+const saveToLocalStorageFromCart = (product, quantity) => {
+    const cart = getProductToLocalStorage()
+    cart[product] = quantity;
+
+    const catToString = JSON.stringify(cart)
+    console.log(cart)
+    localStorage.setItem('cart', catToString)
+}
